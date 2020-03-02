@@ -43,6 +43,11 @@
                 if (typeof pAudio === "undefined") return;
                 pAudio.initStatus();
             });
+
+            // イベント - 楽曲終了
+            pAudio.addEventListener('songEnd', () => {
+                pAudio.play();
+            });
         </script>
     </body>
 </html>
