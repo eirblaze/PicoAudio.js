@@ -44,8 +44,9 @@
                 pAudio.initStatus();
             });
 
-            // イベント - 楽曲終了
+            // ループ再生
             pAudio.addEventListener('songEnd', () => {
+                pAudio.initStatus();
                 pAudio.play();
             });
         </script>
