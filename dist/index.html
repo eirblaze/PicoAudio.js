@@ -26,12 +26,12 @@
                     parseData = pAudio.parseSMF(smfData);
                     pAudio.setData(parseData);
 
-                    // ループ再生
-                    pAudio.addEventListener('songEnd', () => {
-                        pAudio.initStatus();
-                        pAudio.stop();
-                        pAudio.play();
-                    });
+                    // ループ再生を有効にする
+                    pAudio.setLoop(true);
+
+                    // 読み込みと同時に再生
+                    pAudio.play();
+
                 }
                 fileReader.readAsArrayBuffer(file);
             });
