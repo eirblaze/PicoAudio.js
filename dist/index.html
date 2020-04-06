@@ -25,6 +25,13 @@
                     }
                     parseData = pAudio.parseSMF(smfData);
                     pAudio.setData(parseData);
+
+                    // ループ再生
+                    pAudio.addEventListener('songEnd', () => {
+                        pAudio.initStatus();
+                        pAudio.stop();
+                        pAudio.play();
+                    });
                 }
                 fileReader.readAsArrayBuffer(file);
             });
@@ -44,11 +51,7 @@
                 pAudio.initStatus();
             });
 
-            // ループ再生
-            pAudio.addEventListener('songEnd', () => {
-                pAudio.initStatus();
-                pAudio.play();
-            });
+
         </script>
     </body>
 </html>
